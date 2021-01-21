@@ -14,7 +14,7 @@
             <div class="row">
                 <div class="col">
                     <h1>Minimum Wage Day</h1>
-                    <p>The federal minimum wage is $7.25/hr. Assuming you work 40 hours a week, every week of the year, how long does it take before you've earned as much as somebody on minimum wage will earn in an entire year?</p>
+                    <p>The federal minimum wage is $<span id="minWageText"></span>/hr. Assuming you work 40 hours a week, every week of the year, how long does it take before you've earned as much as somebody on minimum wage will earn in an entire year?</p>
                 </div>
             </div>
             <div class="row">
@@ -31,7 +31,7 @@
             </div>
             <div class="row">
                 <div class="col">
-                    <span id="howManyDaysContainerSpan">It takes you <span id="howManyDays"></span> days to out-earn a minimum wage worker for the entire year (gross).
+                    <span id="howManyDaysContainerSpan">It takes you <span id="howManyDays"></span> days to out-earn a minimum wage worker for the entire year (gross).</span>
                 </div>
             </div>
         </div>
@@ -41,10 +41,12 @@
             integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
             crossorigin="anonymous"></script>
         <script>
+            var salary = $("#salary").val();
+            var minWage = 7.25;
+            $("#minWageText").text(minWage);
+            
             $("#salaryForm").submit(function( event ) {
                 event.preventDefault();
-                var salary = $("#salary").val();
-                var minWage = 7.25;
                 var howManyDays = [365 / [(salary / 2080) / (minWage)]];
                 $("#howManyDays").text(Math.round(howManyDays));
                 $("#howManyDaysContainerSpan").show().fadeIn( 1000 );
