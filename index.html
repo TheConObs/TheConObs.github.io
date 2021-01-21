@@ -46,7 +46,7 @@
                 var salary = $("#salary").val();
                 var minWage = 7.25;
                 var howManyDays = [365 / [(salary / 2080) / (minWage)]];
-                $("#howManyDays").text(howManyDays.toFixed(0));
+                $("#howManyDays").text(Math.round(howManyDays));
                 $("#howManyDaysContainerSpan").show().fadeIn( 1000 );
             });
         </script>
