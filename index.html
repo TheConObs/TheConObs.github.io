@@ -1,10 +1,39 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>Minimum Wage Day</title>
-</head>
-<body>
-<h1>Minimum Wage Day</h1>
-<p>On which day of the year do you reach the yearly income of someone working at minimum wage?</p>
-</body>
+    <head>
+        <title>Minimum Wage Day</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    </head>
+    <body>
+        <h1>Minimum Wage Day</h1>
+        <p>On which day of the year do you reach the yearly income of someone working at minimum wage?</p>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <form id="salaryForm">
+                        <label for="basic-url" class="form-label">Enter Your Yearly Salary</label>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">$</span>
+                            <input id="salary" type="text" class="form-control" aria-label="Salary Amount">
+                            <button class="btn btn-outline-secondary" type="submit" id="button-addon2">See How Many Days</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <span><span id="howManyDays"></span> days into a year before you've earned what someone on the Federal Minimum Wage earns in an entire year.
+                </div>
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+        <script>
+            $("#salaryForm").submit(function( event ) {
+                var salary = $("#salary").val();
+                var minWage = 7.25;
+                var howManyDays = [365 / [(salary / 2080) / (minWage)]];
+                $("#howManyDays").text(howManyDays);
+            });
+        </script>
+    </body>
 </html>
