@@ -49,7 +49,7 @@
                 event.preventDefault();
                 var howManyWeeks = [52 / [(salary / 2080) / (minWage)]];
                 var howManyDays = [howManyWeeks * 7];
-                howManyWeeks = Math.round(howManyWeeks * 10) / 10;
+                // howManyWeeks = Math.round(howManyWeeks * 10) / 10;
                 $("#howManyDays").text(Math.round(howManyDays));
                 $("#howManyWeeks").text(howManyWeeks);
                 $("#howManyDaysContainerSpan").show().fadeIn( 1000 );
