@@ -4,6 +4,7 @@
         <title>Minimum Wage Day</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
         <style>
+            #lessThanMessageContainer,
             #howManyDaysContainerSpan {
                 display: none;
             }
@@ -22,9 +23,12 @@
                     <form id="salaryForm">
                         <label for="states" class="form-label">Use the Federal Minimum Wage, or...</label>
                         <div class="input-group mb-3">
-                            <select id="states" class="form-select">
+                            <select id="states" class="form-select" onchange="displayMessage(this)">
                                 <option value="0" selected>Select Your State</option>
                             </select>
+                        </div>
+                        <div id="lessThanMessageContainer">
+                            <span id="lessThanMessage" class="alert alert-danger"></span>
                         </div>
                         <label for="salary" class="form-label">Enter Your Yearly Salary in US Dollars</label>
                         <div class="input-group mb-3">
@@ -69,6 +73,15 @@
                     $('#states').append($('<option>').text(json[i].name).attr('value', json[i].wage));
                 });
             });
+            
+            function displayMessage(select) {
+                if(select.value < fedWage) {
+                    $("#lessThanMessage").text(select.value + " is less than the Federal Minimum Wage of $" + fedWage + " so we'll use the Federal Minimum Wage instead.");
+                    $("#lessThanMessageContainer").show().fadeIn( 1000 );
+                } else {
+                    $("#lessThanMessageContainer").hide().fadeOut( 1000 );
+                }
+            }
         </script>
     </body>
 </html>
