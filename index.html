@@ -63,7 +63,7 @@
             
             $.getJSON("states.json", function(json) {
                 $.each(json, function(i, name, wage) {
-                    $('#states').append($('<option>').text(name).attr('value', wage));
+                    $('#states').append($('<option>').text(json[i].name).attr('value', json[i]wage));
                 });
             });
         </script>
