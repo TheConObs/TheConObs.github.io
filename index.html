@@ -37,7 +37,7 @@
             </div>
             <div class="row">
                 <div class="col">
-                    <span id="howManyDaysContainerSpan">It takes you <span id="howManyWeeks"></span> work weeks (<span id="howManyDays"></span> calendar days) to out-earn a minimum wage worker for the entire year (gross).</span>
+                    <span id="howManyDaysContainerSpan">It takes you <span id="howManyWeeks"></span> work weeks (<span id="howManyDays"></span> calendar days) to out-earn a minimum wage worker ($<span id="whichMinWage"></span>) for the entire year (gross).</span>
                 </div>
             </div>
         </div>
@@ -53,11 +53,14 @@
             $("#salaryForm").submit(function( event ) {
                 event.preventDefault();
                 var salary = $("#salary").val();
-                var howManyWeeks = [52 / [(salary / 2080) / (minWage)]];
+                var stateWage = $("#states").val();
+                var minWageUsed = !!stateWage ? stateWage : minWage;
+                var howManyWeeks = [52 / [(salary / 2080) / (minWageUsed)]];
                 var howManyDays = [howManyWeeks * 7];
                 howManyWeeks = Math.round(howManyWeeks * 10) / 10;
                 $("#howManyDays").text(Math.round(howManyDays));
                 $("#howManyWeeks").text(howManyWeeks);
+                $("#whichMinWage").text(minWageUsed);
                 $("#howManyDaysContainerSpan").show().fadeIn( 1000 );
             });
             
