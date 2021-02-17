@@ -20,7 +20,13 @@
             <div class="row">
                 <div class="col-12 col-sm-9 col-md-7 col-lg-5 col-xl-4">
                     <form id="salaryForm">
-                        <label for="basic-url" class="form-label">Enter Your Yearly Salary in US Dollars</label>
+                        <label for="states" class="form-label">Use the Federal Minimum Wage, or...</label>
+                        <div class="input-group mb-3">
+                            <select id="states" class="form-select">
+                                <option selected>Select Your State</option>
+                            </select>
+                        </div>
+                        <label for="salary" class="form-label">Enter Your Yearly Salary in US Dollars</label>
                         <div class="input-group mb-3">
                             <span class="input-group-text">$</span>
                             <input id="salary" type="text" class="form-control" aria-label="Salary Amount" placeholder="Enter whole dollars eg. 60000">
@@ -53,6 +59,12 @@
                 $("#howManyDays").text(Math.round(howManyDays));
                 $("#howManyWeeks").text(howManyWeeks);
                 $("#howManyDaysContainerSpan").show().fadeIn( 1000 );
+            });
+            
+            $.getJSON("states.json", function(json) {
+                $.each(json, function(i, key, value) {
+                    $('#states').append($('<option>').text(value).attr('value', key));
+                });
             });
         </script>
     </body>
