@@ -9,7 +9,7 @@
     { "name": "Delaware", "wage": 10.25 },
     { "name": "Washington D.C.", "wage": 15.00 },
     { "name": "Florida", "wage": 10.00 },
-    { "name": "Georgia", "wage": 5.15 },
+    { "name": "Georgia - Less than Federal Minimum Wage", "wage": 5.15 },
     { "name": "Hawaii", "wage": 10.10 },
     { "name": "Idaho", "wage": 7.25 },
     { "name": "Illinois", "wage": 11.00 },
@@ -49,5 +49,5 @@
     { "name": "Washington", "wage": 13.69 },
     { "name": "West Virginia", "wage": 8.75 },
     { "name": "Wisconsin", "wage": 7.25 },
-    { "name": "Wyoming", "wage": 5.15 }
+    { "name": "Wyoming - Less than Federal Minimum Wage", "wage": 5.15 }
 ]
