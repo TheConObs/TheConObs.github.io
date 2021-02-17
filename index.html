@@ -62,8 +62,8 @@
             });
             
             $.getJSON("states.json", function(json) {
-                $.each(json, function(i, key, value) {
-                    $('#states').append($('<option>').text(value).attr('value', key));
+                $.each(json, function(i, value) {
+                    $('#states').append($('<option>').text(value).attr('value', i));
                 });
             });
         </script>
