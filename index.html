@@ -84,7 +84,7 @@
             
             function displayMessage(select) {
                 if(select.value < fedWage) {
-                    $("#lessThanMessage").text(select.value + " is less than the Federal Minimum Wage of $" + fedWage + " so we'll use the Federal Minimum Wage instead.");
+                    $("#lessThanMessage").text("$" + select.value + " is less than the Federal Minimum Wage of $" + fedWage + " so we'll use the Federal Minimum Wage instead.");
                     $("#lessThanMessageContainer").show().fadeIn( 1000 );
                 } else {
                     $("#lessThanMessageContainer").hide().fadeOut( 1000 );
