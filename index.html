@@ -69,12 +69,13 @@
                 var salary = $("#salary").val();
                 var stateWage = $("#states").val();
                 var minWageUsed = stateWage > fedWage ? stateWage : fedWage;
+                var formattedMinWageUsed = minWageUsed.toFixed(2);
                 var howManyWeeks = [52 / [(salary / 2080) / (minWageUsed)]];
                 var howManyDays = [howManyWeeks * 7];
                 howManyWeeks = Math.round(howManyWeeks * 10) / 10;
                 $("#howManyDays").text(Math.round(howManyDays));
                 $("#howManyWeeks").text(howManyWeeks);
-                $("#whichMinWage").text(minWageUsed.toFixed(2));
+                $("#whichMinWage").text(formattedMinWageUsed);
                 $("#howManyDaysContainerSpan").show().fadeIn( 1000 );
             });
             
